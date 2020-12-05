@@ -19,7 +19,7 @@ RUN git clone -b ${VIRTUOSO_GIT_VERSION} --single-branch --depth=1 ${VIRTUOSO_GI
     patch ${VIRTUOSO_DIR}/libsrc/Wi/sparql_io.sql < /patch.diff && \
     ./autogen.sh && \
     CFLAGS="-O2 -m64" && export CFLAGS && \
-    ./configure --disable-bpel-vad --enable-conductor-vad --enable-fct-vad --disable-dbpedia-vad --disable-demo-vad --disable-isparql-vad --disable-ods-vad --disable-sparqldemo-vad --disable-syncml-vad --disable-tutorial-vad --program-transform-name="s/isql/isql-v/" && \
+    ./configure --disable-bpel-vad --enable-conductor-vad --enable-fct-vad --disable-dbpedia-vad --disable-demo-vad --disable-isparql-vad --enable-ods-vad --disable-sparqldemo-vad --disable-syncml-vad --disable-tutorial-vad --program-transform-name="s/isql/isql-v/" && \
     make -j $(grep -c '^processor' /proc/cpuinfo) && \
     make -j $(grep -c '^processor' /proc/cpuinfo) install
 
